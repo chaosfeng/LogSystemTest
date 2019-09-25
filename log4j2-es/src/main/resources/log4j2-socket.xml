@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Socket name="socket" host="10.170.0.5" port="4560" protocol="TCP" immediateFlush="false" bufferedIO="true">
+            <JsonLayout compact="true" eventEol="true" locationInfo="false">
+                <KeyValuePair key="logdate" value="$${date:yyyy-MM-dd HH:mm:ss.SSS}"/>
+            </JsonLayout>
+        </Socket>
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug" includeLocation="false">
+            <AppenderRef ref="socket"/>
+        </Root>
+        <!-- For application define -->
+        <!--<AsyncLogger level="debug" name="Test_Log4j2_To_ES"/>-->
+    </Loggers>
+</Configuration>

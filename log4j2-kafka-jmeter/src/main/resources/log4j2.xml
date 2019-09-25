@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Kafka name="kafkaLog" topic="kafka-test-topic" ignoreExceptions="false">
+            <JsonLayout compact="true" eventEol="true" locationInfo="false">
+                <KeyValuePair key="logdate" value="$${date:yyyy-MM-dd HH:mm:ss.SSS}"/>
+            </JsonLayout>
+            <Property name="bootstrap.servers">10.3.0.84:9092</Property>
+        </Kafka>
+    </Appenders>
+
+    <Loggers>
+
+        <Root level="debug" includeLocation="false">
+            <AppenderRef ref="kafkaLog"/>
+        </Root>
+        <Logger name="org.apache.kafka" level="INFO" /> <!-- avoid recursive logging -->
+        <!-- For application define -->
+        <!--<AsyncLogger level="debug" name="Test_Log4j2_To_ES"/>-->
+    </Loggers>
+</Configuration>

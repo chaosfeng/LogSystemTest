@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+
+         <Gelf name="logstash-gelf" host="tcp:10.170.0.5" port="4560" version="1.1">
+            <Field name="logdate" pattern="%d{yyyy-MM-dd HH:mm:ss.SSS}"/>
+            <Field name="appName" literal="log4j2ToESApp" />
+            <Field name="logger" pattern="%logger"/>
+            <Field name="level" pattern="%level"/>
+            <Field name="thread" pattern="%t"/>
+            <!-- <Field name="simpleClassName" pattern="%C{1}" />
+            <Field name="className" pattern="%C"/>
+            <Field name="method" pattern="%M"/>
+            <Field name="line" pattern="%L"/>
+            <Field name="server" pattern="%host" /> -->
+        </Gelf>
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug">
+            <!--<AppenderRef ref="console"/>-->
+            <AppenderRef ref="logstash-gelf"/>
+        </Root>
+
+        <!-- For application define -->
+        <!--<AsyncLogger level="debug" name="Test_Log4j2_To_ES"/>-->
+    </Loggers>
+</Configuration>

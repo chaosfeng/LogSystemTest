@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+
+        <NoSql name="MongoDBAppender" bufferSize="32"><!-- debug日志 -->
+            <MongoDb3 server="localhost" port="27017" username="lxiaodao" password="123" databaseName="logdb" collectionName="testlog"/>
+        </NoSql>
+    </Appenders>
+
+    <Loggers>
+        <Root level="debug" includeLocation="false">
+            <!--<AppenderRef ref="console"/>-->
+            <AppenderRef ref="MongoDBAppender"/>
+        </Root>
+
+        <Logger name="org.mongodb.driver" level="info" includeLocation="false"/>
+        <!-- For application define -->
+        <!--<AsyncLogger level="debug" name="Test_Log4j2_To_ES"/>-->
+    </Loggers>
+</Configuration>

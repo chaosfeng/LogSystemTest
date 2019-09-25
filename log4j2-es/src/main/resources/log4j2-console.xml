@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <JsonLayout properties="true" compact="true" eventEol="true" />
+        </Console>
+
+    </Appenders>
+
+    <Loggers>
+
+        <AsyncRoot level="debug" includeLocation="false">
+            <AppenderRef ref="console"/>
+        </AsyncRoot>
+
+        <!-- For application define -->
+        <!--<AsyncLogger level="debug" name="Test_Log4j2_To_ES"/>-->
+    </Loggers>
+</Configuration>

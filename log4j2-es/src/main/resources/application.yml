@@ -1,0 +1,7 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: log4j2ToESApp
+logging:
+  config: classpath:log4j2-socket.xml
